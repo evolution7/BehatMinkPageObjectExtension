@@ -1,0 +1,28 @@
+{
+    "name": "evolution7/behat-mink-page-object-extension",
+    "version": "0.1.0",
+    "type": "library",
+    "description": "Add support for the Page Object extension to the Mink extension.",
+    "keywords": ["evolution7", "behat", "bdd", "mink", "page"],
+    "homepage": "https://github.com/Evolution7/BehatMinkPageObjectExtension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evolution 7",
+            "homepage": "http://www.evolution7.com.au/",
+            "email": "connect@evolution7.com.au"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "behat/behat": "~2.4",
+        "behat/mink-extension": "*",
+        "sensiolabs/behat-page-object-extension": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Evolution7\\Behat\\MinkPageObjectExtension\\": "src/"
+        }
+    }
+}
