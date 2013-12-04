@@ -1,5 +1,7 @@
 <?php
 
+namespace Evolution7\Behat\MinkPageObjectExtension\PageObject;
+
 use Behat\Mink\Session;
 use SensioLabs\Behat\PageObjectExtension\Context\PageFactoryInterface;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page as PageObjectPage;

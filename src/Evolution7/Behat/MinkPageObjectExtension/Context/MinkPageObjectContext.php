@@ -1,5 +1,7 @@
 <?php
 
+namespace Evolution7\Behat\MinkPageObjectExtension\Context;
+
 use Behat\MinkExtension\Context\MinkContext,
     Behat\MinkExtension\Element\TraversableElement\DocumentElement;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page,
