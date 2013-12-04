@@ -54,6 +54,25 @@ class MinkPageObjectContext extends MinkContext implements PageObjectAwareInterf
         $button = $this->fixStepArgument($button);
         $this->page->pressButton($button);
     }
+    
+    /**
+     * Selects option in select field with specified id|name|label|value.
+     */
+    public function selectOption($select, $option)
+    {
+        $select = $this->fixStepArgument($select);
+        $option = $this->fixStepArgument($option);
+        $this->page->selectFieldOption($select, $option);
+    }
+
+    /**
+     * Checks checkbox with specified id|name|label|value.
+     */
+    public function checkOption($option)
+    {
+        $option = $this->fixStepArgument($option);
+        $this->page->checkField($option);
+    }
 
     /**
      * Click link on page object
