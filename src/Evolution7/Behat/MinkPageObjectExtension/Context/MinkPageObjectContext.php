@@ -19,8 +19,6 @@ use SensioLabs\Behat\PageObjectExtension\PageObject\Page,
 class MinkPageObjectContext extends MinkContext implements PageObjectAwareInterface
 {
 
-    private $page;
-
     /**
      * Opens specified page, based on page object name.
      * Sets page object within context.
@@ -29,58 +27,11 @@ class MinkPageObjectContext extends MinkContext implements PageObjectAwareInterf
     {
         $page = $this->getPage($page);
         if ($page instanceof Page) {
-           $this->page = $page;
+           $this->getSession()->setPage($page);
            $page->open();
         } else {
            parent::visit($page);
         }
-    }
-
-    /**
-     * Fill field on page object
-     */
-    public function fillField($field, $value)
-    {
-        $field = $this->fixStepArgument($field);
-        $value = $this->fixStepArgument($value);
-        $this->page->fillField($field, $value);
-    }
-
-    /**
-     * Press button on page object
-     */
-    public function pressButton($button)
-    {
-        $button = $this->fixStepArgument($button);
-        $this->page->pressButton($button);
-    }
-    
-    /**
-     * Selects option in select field with specified id|name|label|value.
-     */
-    public function selectOption($select, $option)
-    {
-        $select = $this->fixStepArgument($select);
-        $option = $this->fixStepArgument($option);
-        $this->page->selectFieldOption($select, $option);
-    }
-
-    /**
-     * Checks checkbox with specified id|name|label|value.
-     */
-    public function checkOption($option)
-    {
-        $option = $this->fixStepArgument($option);
-        $this->page->checkField($option);
-    }
-
-    /**
-     * Click link on page object
-     */
-    public function clickLink($link)
-    {
-        $link = $this->fixStepArgument($link);
-        $this->page->clickLink($link);
     }
 
     /**

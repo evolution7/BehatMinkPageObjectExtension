@@ -9,7 +9,7 @@ use SensioLabs\Behat\PageObjectExtension\PageObject\Page as PageObjectPage;
 class Page extends PageObjectPage
 {
   
-  protected $elements = array();
+  protected $aliases = array();
 
   /**
    * @param Session              $session
@@ -34,8 +34,8 @@ class Page extends PageObjectPage
    */
   public function parseAlias($alias)
   {
-    if (array_key_exists($alias, $this->elements)) {
-      return $this->elements[$alias];
+    if (array_key_exists($alias, $this->aliases)) {
+      return $this->aliases[$alias];
     } else {
       return $alias;
     }
