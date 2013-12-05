@@ -26,6 +26,34 @@ class Page extends PageObjectPage
   }
 
   /**
+   * Replace alias with value.
+   * If no matching alias found, value passed is returned.
+   *
+   * @param string $alias
+   * @return string $value
+   */
+  public function parseAlias($alias)
+  {
+    if (array_key_exists($alias, $this->elements)) {
+      return $this->elements[$alias];
+    } else {
+      return $alias;
+    }
+  }
+
+  /**
+   * Finds element by it's id.
+   *
+   * @param string $id element id
+   *
+   * @return NodeElement|null
+   */
+  public function findById($id)
+  {
+    return parent::findById($this->parseAlias($id));
+  }
+
+  /**
    * Finds link with specified locator.
    *
    * @param string $locator link id, title, text or image alt
@@ -34,8 +62,7 @@ class Page extends PageObjectPage
    */
   public function findLink($locator)
   {
-    $locator = array_key_exists($locator, $this->elements) ? $this->elements[$locator] : $locator;
-    return parent::findLink($locator);
+    return parent::findLink($this->parseAlias($locator));
   }
 
   /**
@@ -47,8 +74,7 @@ class Page extends PageObjectPage
    */
   public function findButton($locator)
   {
-    $locator = array_key_exists($locator, $this->elements) ? $this->elements[$locator] : $locator;
-    return parent::findButton($locator);
+    return parent::findButton($this->parseAlias($locator));
   }
 
   /**
@@ -60,8 +86,7 @@ class Page extends PageObjectPage
    */
   public function findField($locator)
   {
-    $locator = array_key_exists($locator, $this->elements) ? $this->elements[$locator] : $locator;
-    return parent::findField($locator);
+    return parent::findField($this->parseAlias($locator));
   }
 
 }
